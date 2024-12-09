@@ -1,0 +1,160 @@
+/* App.css */
+.update-court {
+  font-family: 'Arial', sans-serif;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(233, 251, 238, 0.9), rgb(140, 234, 219));
+  min-height: 700px;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.update-court:hover {
+  transform: scale(1.02);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 2px solid #ccc;
+}
+
+.logo {
+  width: 100px;
+}
+
+.admin {
+  font-weight: bold;
+  font-size: 20px;
+  color: #007bff;
+}
+
+.court-info {
+  margin-top: 20px;
+  padding: 70px;
+  border-radius: 15px;
+ 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  color: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.court-info h2 {
+  font-size: 55px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.court-info p {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: rgb(233, 251, 241);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.form p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="tel"] {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus {
+  border-color: #007bff;
+}
+
+input[type="file"] {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.location-button {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  /* transition: background 0.3s ease, transform 0.2s ease; */
+}
+
+.location-button:hover {
+  background: linear-gradient(90deg, #0056b3, #003f88);
+  transform: scale(1.05);
+}
+
+.update-button,
+.delete-button {
+  padding: 14px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.update-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.update-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
