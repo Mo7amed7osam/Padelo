@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import "../Pages Styles/adminPage2.css"; 
+import React, { useState } from "react";
+import "../Styles/adminPage2.css";
 import Header3 from "../Components/HeaderAdminPage";
 
 function UpdateCourt() {
-  const [courtName, setCourtName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [courtName, setCourtName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [courtImage, setCourtImage] = useState(null);
 
   const handleImageUpload = (event) => {
@@ -19,9 +19,12 @@ function UpdateCourt() {
 
   return (
     <div className="update-court">
-        <Header3 />
+      <Header3 />
 
-      <div className="court-info" style={{ backgroundImage: `url(${require("../assets/R.jpg")})` }}>
+      <div
+        className="court-info"
+        style={{ backgroundImage: `url(${require("../assets/R.jpg")})` }}
+      >
         <h2>Padel-beast</h2>
         <p>6-October</p>
         <p>+201120966038</p>

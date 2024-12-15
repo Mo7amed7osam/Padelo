@@ -1,9 +1,13 @@
 /* App.css */
 .update-court {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   margin: 0 auto;
   padding: 20px;
-  background: linear-gradient(135deg, rgba(233, 251, 238, 0.9), rgb(140, 234, 219));
+  background: linear-gradient(
+    135deg,
+    rgba(233, 251, 238, 0.9),
+    rgb(140, 234, 219)
+  );
   min-height: 700px;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
@@ -14,7 +18,7 @@
   transform: scale(1.02);
 }
 
-.header {
+.update-court .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,21 +26,21 @@
   border-bottom: 2px solid #ccc;
 }
 
-.logo {
+.update-court .logo {
   width: 100px;
 }
 
-.admin {
+.update-court .admin {
   font-weight: bold;
   font-size: 20px;
   color: #007bff;
 }
 
-.court-info {
+.update-court .court-info {
   margin-top: 20px;
   padding: 70px;
   border-radius: 15px;
- 
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -45,7 +49,7 @@
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-.court-info h2 {
+.update-court .court-info h2 {
   font-size: 55px;
   font-weight: bold;
   margin: 0;
@@ -57,7 +61,7 @@
   margin: 5px 0;
 }
 
-.form {
+.update-court .form {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
@@ -68,7 +72,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.form h2 {
+.update-court .form h2 {
   font-size: 28px;
   margin-bottom: 20px;
   color: #007bff;
@@ -76,13 +80,13 @@
   font-weight: bold;
 }
 
-.form p {
+.update-court .form p {
   font-size: 16px;
   color: #666;
   margin-bottom: 25px;
 }
 
-label {
+.update-court label {
   display: block;
   margin: 20px 0;
   width: 100%;
@@ -90,8 +94,8 @@ label {
   text-align: left;
 }
 
-input[type="text"],
-input[type="tel"] {
+.update-court input[type="text"],
+.update-court input[type="tel"] {
   width: 100%;
   padding: 15px;
   font-size: 16px;
@@ -102,17 +106,17 @@ input[type="tel"] {
   transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="tel"]:focus {
+.update-court input[type="text"]:focus,
+.update-court input[type="tel"]:focus {
   border-color: #007bff;
 }
 
-input[type="file"] {
+.update-court input[type="file"] {
   margin-top: 5px;
   font-size: 14px;
 }
 
-.location-button {
+.update-court .location-button {
   background: linear-gradient(90deg, #007bff, #0056b3);
   color: white;
   padding: 12px 20px;
@@ -123,13 +127,13 @@ input[type="file"] {
   /* transition: background 0.3s ease, transform 0.2s ease; */
 }
 
-.location-button:hover {
+.update-court .location-button:hover {
   background: linear-gradient(90deg, #0056b3, #003f88);
   transform: scale(1.05);
 }
 
-.update-button,
-.delete-button {
+.update-court .update-button,
+.update-court .delete-button {
   padding: 14px 30px;
   font-size: 18px;
   border: none;
@@ -139,22 +143,22 @@ input[type="file"] {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.update-button {
+.update-court .update-button {
   background-color: #28a745;
   color: white;
 }
 
-.update-button:hover {
+.update-court .update-button:hover {
   background-color: #218838;
   transform: scale(1.05);
 }
 
-.delete-button {
+.update-court .delete-button {
   background-color: #dc3545;
   color: white;
 }
 
-.delete-button:hover {
+.update-court .delete-button:hover {
   background-color: #c82333;
   transform: scale(1.05);
 }

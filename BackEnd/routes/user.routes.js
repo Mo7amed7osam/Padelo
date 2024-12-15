@@ -12,5 +12,13 @@ router.put(
   '/add-phone-number',
   userController.addPhoneNumber,
 );
+router.post(
+  '/forgetPassword',
+  userController.forgetPassword,
+);
+router.patch(
+  '/ResetPass/:token',
+  userController.ResetPassword,
+);
 
 module.exports = router;

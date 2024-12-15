@@ -1,7 +1,12 @@
 import React from "react";
 import Header from "../Components/Header";
-import "../Pages Styles/ContactUs.css";
-import { FaFacebook, FaInstagram, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
+import "../Styles/ContactUs.css";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaPhoneAlt,
+} from "react-icons/fa";
 
 function ContactUs() {
   return (
@@ -11,7 +16,10 @@ function ContactUs() {
       <div className="contact-us-content">
         <h1>Get in touch</h1>
         <p>
-          <FaPhoneAlt size={35} style={{ color: "#008000", marginRight: "8px" }} />
+          <FaPhoneAlt
+            size={35}
+            style={{ color: "#008000", marginRight: "8px" }}
+          />
           Give us a ring
         </p>
         <p className="contact-detail">+201555948232</p>

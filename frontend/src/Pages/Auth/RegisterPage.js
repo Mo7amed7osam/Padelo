@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
-import "../Pages Styles/Register.css";
+import "../../Styles/Register.css";
+import { user } from "../../Context/UserContext";
+import Cookies from "universal-cookie";
 
 const RegisterPage = () => {
   // Set the Navigate to Login
@@ -12,6 +14,12 @@ const RegisterPage = () => {
     navigate("/Login");
   };
 
+  //Get User
+  const userNow = useContext(user);
+
+  //Cookie
+  const cookie = new Cookies();
+
   // Data to send for API
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -19,6 +27,7 @@ const RegisterPage = () => {
   const [passwordR, setPasswordR] = useState("");
   const [accept, setAccept] = useState(false);
 
+  // Catch error
   const [error, setError] = useState("");
 
   // Toggle Password Visibility
@@ -50,25 +59,24 @@ const RegisterPage = () => {
   // Set API Configuration
   async function submit(e) {
     e.preventDefault();
-    let flag;
     setAccept(true);
-    if (name === "" || password.length < 8 || passwordR !== password) {
-      flag = false;
-    } else {
-      flag = true;
-    }
     try {
-      if (flag) {
-        await axios
+      if (!error) {
+        let res = await axios
           .post("http://127.0.0.1:3000/api/users/register", {
             name: name,
             email: email,
             password: password,
           })
           .then();
-        if (!error) {
-          navigate("/Login");
-        }
+
+        const token = res.data.token;
+        const userDetails = res.data.user;
+        cookie.set("UserToken", token);
+
+        userNow.setAuth({ token, userDetails });
+
+        navigate("/");
       }
     } catch (err) {
       // handle the response
@@ -86,7 +94,7 @@ const RegisterPage = () => {
     <div className="register-container">
       <div className="to-login">
         <img
-          src={require("../assets/OIP.jpg")}
+          src={require("../../assets/OIP.jpg")}
           alt="Logo"
           className="logo-image"
         />
@@ -96,7 +104,6 @@ const RegisterPage = () => {
         </button>
       </div>
       <div className="register-form">
-
         <h2>Create Account</h2>
 
         <form className="form-style" onSubmit={submit}>
@@ -152,11 +159,20 @@ const RegisterPage = () => {
             />
           </div>
 
+          <p className="terms">
+            By signing up you agree to{" "}
+            <a href="#HomePage">terms and conditions</a> at Padelo.
+          </p>
+
+          <button type="submit" className="register-button">
+            Register
+          </button>
+
           {/* Display Errors */}
           <div
             className={`error ${
               accept &&
-              (error ||
+              (error === `This email "${email}" already exists` ||
                 name === "" ||
                 !/[A-Z]/.test(password) ||
                 password.length < 8 ||
@@ -165,32 +181,37 @@ const RegisterPage = () => {
                 : ""
             }`}
           >
-            <p className="error-heading">Error!</p>
+            <h3 className="error-heading">Error!</h3>
 
-            {name === "" && accept && <p>User name is required.</p>}
-
-            {!/[A-Z]/.test(password) && accept && (
-              <p>Password doesn't contain at least one capital letter.</p>
+            {/* will try a better handling for email */}
+            {accept && error === `This email "${email}" already exists` && (
+              <p>{error}</p>
             )}
 
-            {accept && error && <p>{error}</p>}
+            {name === "" && accept && <p>User name is required.</p>}
 
             {password.length < 8 && accept && (
               <p>Password must be more than 8 characters.</p>
             )}
 
+            {!/(\d)/.test(password) && accept && (
+              <p>Password must contain at least one number.</p>
+            )}
+
+            {!/[A-Z]/.test(password) && accept && (
+              <p>Password must contain at least one uppercase letter.</p>
+            )}
+
+            {!/[a-z]/.test(password) && accept && (
+              <p>Password must contain at least one lowercase letter.</p>
+            )}
+
+            {!/[^a-zA-Z0-9]/.test(password) && accept && (
+              <p>Password must contain at least one special character.</p>
+            )}
+
             {password !== passwordR && accept && <p>Password doesn't Match.</p>}
           </div>
-
-          <p className="terms">
-            By signing up you agree to{" "}
-            <a href="#HomePage">terms and conditions</a> at Padelo.
-          </p>
-          {  error ? <p className ="error-message">{error}</p>:" "}
-
-          <button type="submit" className="register-button">
-            Register
-          </button>
         </form>
       </div>
     </div>

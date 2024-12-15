@@ -1,23 +1,22 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
 // import { courts } from "../Components/courtsData";
-import "../Pages Styles/Courts.css";
-import defaultCourtImage from '../assets/OIP.jpg';
+import "../Styles/Courts.css";
+import defaultCourtImage from "../assets/OIP.jpg";
 
 function Courts() {
   const [searchQuery, setSearchQuery] = useState("");
   const [courts, setCourts] = useState([]);
 
-    useEffect(() => {
-      fetch("http://127.0.0.1:3000/api/courts")
-        .then((response) => response.json())
-        .then((data) => {
-          setCourts(data.courts); 
-        })
-        .catch((error) => console.error("Error fetching courts:", error));
-    }, []);
+  useEffect(() => {
+    fetch("http://127.0.0.1:3000/api/courts")
+      .then((response) => response.json())
+      .then((data) => {
+        setCourts(data.courts);
+      })
+      .catch((error) => console.error("Error fetching courts:", error));
+  }, []);
 
-  
   const filteredCourts = searchQuery
     ? courts.filter((court) => {
         const query = searchQuery.trim().toLowerCase();
@@ -64,7 +63,7 @@ function Courts() {
                 src={court.image || defaultCourtImage}
                 alt={court.name}
                 className="court-image"
-                />
+              />
               <div className="court-info">
                 <h3 className="court-name">Court {court.name}</h3>
                 <p className="court-location">Location: {court.location}</p>
